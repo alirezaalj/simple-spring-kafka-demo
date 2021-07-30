@@ -3,11 +3,9 @@ package ir.alirezaalijani.spring.kafka.demo.webtokafka.controller;
 import ir.alirezaalijani.spring.kafka.demo.model.UserInfo;
 import ir.alirezaalijani.spring.kafka.demo.producer.service.KafkaProducer;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Random;
 
 @RestController
@@ -29,5 +27,10 @@ public class UserDataController {
         userInfo.setFullName(userInfo.getFullName()+newId);
         userInfoKafkaProducer.send("user-topic",userInfo.getId(),userInfo);
         return ResponseEntity.ok("User push by id "+userInfo.getId());
+    }
+
+    @GetMapping("/info")
+    public ResponseEntity<?> getInfo(HttpServletRequest request){
+        return ResponseEntity.ok(request.getRemoteAddr());
     }
 }

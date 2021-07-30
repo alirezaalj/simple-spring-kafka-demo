@@ -51,6 +51,7 @@ public class KafkaAdminClient {
                     ).collect(Collectors.toList());
             createTopicsResult = retryTemplate.execute(retryContext ->{
                 log.info("----------Retry to create Topics-----------");
+                log.info("Topics - list {}",kafkaTopics);
                 return adminClient.createTopics(kafkaTopics);
             });
             log.info("Create topic result {}", createTopicsResult.values().values());
