@@ -21,6 +21,10 @@
             <artifactId>kafka-admin</artifactId>
         </dependency>
         <dependency>
+            <groupId>ir.alirezaalijnai</groupId>
+            <artifactId>kafka-producer</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>

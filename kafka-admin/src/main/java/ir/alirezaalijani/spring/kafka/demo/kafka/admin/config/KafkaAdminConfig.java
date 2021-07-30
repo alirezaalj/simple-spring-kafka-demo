@@ -6,11 +6,12 @@ import org.apache.kafka.clients.admin.AdminClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.annotation.EnableRetry;
 
 import java.util.Map;
 
 
-//@EnableRetry /* only with aop dependensy */
+@EnableRetry /* only with aop dependensy */
 @Configuration
 @ComponentScan(basePackages = "ir.alirezaalijani.spring.kafka.demo.data")
 public class KafkaAdminConfig {

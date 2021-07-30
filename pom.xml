@@ -7,6 +7,9 @@
         <module>web-to-kafka</module>
         <module>kafka-admin</module>
         <module>common-config</module>
+        <module>kafka-producer</module>
+        <module>data-model</module>
+        <module>kafka-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -46,6 +49,16 @@
             <dependency>
                 <groupId>ir.alirezaalijnai</groupId>
                 <artifactId>kafka-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ir.alirezaalijnai</groupId>
+                <artifactId>data-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ir.alirezaalijnai</groupId>
+                <artifactId>kafka-producer</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--            end modules dependency         -->
