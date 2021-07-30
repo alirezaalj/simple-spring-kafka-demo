@@ -1,0 +1,59 @@
+version: '3.7'
+services:
+  web-to-kafka:
+    image: ${GROUP_ID}/web.to.kafka:${SERVICE_VERSION:-latest}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - kafka-broker-2
+      - kafka-broker-1
+      - kafka-broker-3
+    volumes:
+      - "./docker-logs:/workspace/web.to.kafka/logs"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "KAFKA-CONFIG_TOPIC-NAME=user-topic"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  kafka-to-log-1:
+    image: ${GROUP_ID}/kafka.to.log:${SERVICE_VERSION:-latest}
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka-broker-2
+      - kafka-broker-1
+      - kafka-broker-3
+    volumes:
+      - "./docker-logs:/workspace/kafka.to.log/logs"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "KAFKA-CONFIG_TOPIC-NAME=user-topic"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  kafka-to-log-2:
+    image: ${GROUP_ID}/kafka.to.log:${SERVICE_VERSION:-latest}
+    ports:
+      - "8082:8081"
+    depends_on:
+      - kafka-broker-2
+      - kafka-broker-1
+      - kafka-broker-3
+    volumes:
+      - "./docker-logs:/workspace/kafka.to.log/logs"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
+      - "LOGGING_LEVEL_ROOT=info"
+      - "KAFKA-CONFIG_TOPIC-NAME=user-topic"
+      - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
+      - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
