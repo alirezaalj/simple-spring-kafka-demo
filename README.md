@@ -1,7 +1,7 @@
 ### Simple spring kafka demo
 
 This program is written using the spring boot framework and the maven plugin and is designed in a modular sort and includes a number of modules. This program is simply run on Docker and using postman you can send data to the first service and receive it by the second service. In this project, the main focus was on Kafka and the use of Kafka with spring.
-
+![](https://github.com/alirezaalj/simple-spring-kafka-demo/blob/master/img/Screenshot_20210731_162309.png)
 my website: [https://alirezaalijani.ir](https://alirezaalijani.ir "https://alirezaalijani.ir")
 ##### Goals
 - create simple kafka producer and consumer
