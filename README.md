@@ -1,6 +1,6 @@
 ### Simple spring kafka demo
 
-This program is written using the spring boot framework and the maven plugin and is designed in a modular sort and includes a number of modules. This program is simply run on Docker and using postman you can send data to the first service and receive it by the second service. In this project, the main focus was on Kafka and the use of Kafka with spring.
+This program is written using the spring boot framework with maven plugin and is designed in a modular project and includes a number of modules. This program is simply run on Docker.with using postman you can send data to the first service then receive it by the second service. In this project, the main focus was on Kafka and the usege of Kafka with spring.
 ![](https://github.com/alirezaalj/simple-spring-kafka-demo/blob/master/img/Screenshot_20210731_162309.png)
 my website: [https://alirezaalijani.ir](https://alirezaalijani.ir "https://alirezaalijani.ir")
 ##### Goals
@@ -13,7 +13,7 @@ my website: [https://alirezaalijani.ir](https://alirezaalijani.ir "https://alire
 ##### Project dependencies
 - maven  : [How to use or Download](https://maven.apache.org/ "How to use or Download")
 - docker : *Must have Docker installed* 
-dockerhub : [https://docker.com/](https://docker.com/_/mongo "https://docker.com/")
+ : [https://docker.com/](https://docker.com/ "https://docker.com/")
 - open terminal in project folder
 - If Docker is installed correctly, with this command, two containers "ir.alirezaalijnai/web.to.kafka"  and "ir.alirezaalijnai/kafka.to.log " will be created automatically on your system after downloading the requirements.
 
